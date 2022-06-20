@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, render_template
-import requests
+import urllib.request
 import json
 import re
 
@@ -36,11 +36,15 @@ def id(id):
             })
         
     #pokeapiから取得
+    name_en = ''
+    image = ''
     url = "https://pokeapi.co/api/v2/pokemon/" + id  + "/"
-    r = requests.get(url, timeout=5)
-    r = r.json()
-    name_en  = r['name']
-    image = r['sprites']['other']['official-artwork']['front_default']
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
+    req = urllib.request.Request(url, headers=headers)
+    with urllib.request.urlopen(req) as res:
+        body = json.load(res)
+        name_en  = body['name']
+        image = body['sprites']['other']['official-artwork']['front_default']
 
     #日本語に変換
     name_ja = ''
