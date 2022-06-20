@@ -22,8 +22,9 @@
             .then(response => response.json())
             .then(data => {
                 var viewArea = document.getElementById("view-area");
-                viewArea.innerHTML = data;
-                console.log(data);
+                json_data = JSON.stringify(data);
+                viewArea.innerHTML = json_data;
+                console.log(json_data);
             });
         });
     </script>
