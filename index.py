@@ -16,7 +16,7 @@ def index():
 
 @app.route("/api/")
 def hello_api():
-    return jsonify({'message': 'This is Poke API !'})
+    return jsonify({'message': 'This is GPA Poke API !'})
 
 @app.route('/api/<id>', methods=["GET"])
 def id(id):
