@@ -10,7 +10,10 @@
     <br>
     <p>例：GPAが0.25の場合、https://poke-gpa-api.vercel.app/api/25</p>
     <button id="send-button">GETリクエストを送信</button><br>
-    <div id="view-area">
+    <br>
+    <div>
+        <textarea id="view-area" rows="7" cols="80">
+        </textarea>
     </div>
     </body>
 
@@ -22,8 +25,8 @@
             .then(response => response.json())
             .then(data => {
                 var viewArea = document.getElementById("view-area");
-                json_data = JSON.stringify(data);
-                viewArea.innerHTML = json_data;
+                json_data = JSON.stringify(data, null, "\t");
+                viewArea.value = json_data;
                 console.log(json_data);
             });
         });
