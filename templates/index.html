@@ -6,13 +6,14 @@
     <body>
     <h1>GPAポケモンAPI サンプル</h1>
     <p>あなたのGPAを100倍した値を入力してください</p>
-    <span>https://poke-gpa-api.vercel.app/api/</span><input placeholder=25 type="text" id="id" style="width:50px;">
+    <span>https://poke-gpa-api.vercel.app/api/</span><input value=25 type="text" id="id" style="width:50px;">
     <br>
     <p>例：GPAが0.25の場合、https://poke-gpa-api.vercel.app/api/25</p>
     <button id="send-button">GETリクエストを送信</button><br>
     <br>
     <div>
-        <textarea id="view-area" rows="7" cols="80">
+        <p>レスポンス</p>
+        <textarea id="view-area" rows="10" cols="80">
         </textarea>
     </div>
     </body>

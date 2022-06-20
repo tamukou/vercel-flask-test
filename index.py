@@ -62,6 +62,6 @@ def id(id):
         id = int(id), 
         name_ja = name_ja,
         name_en = name_en,
-        image = image
+        image_url = image
     )  
 
