@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GPAポケモンAPI</title>
+    </head>
+    <body>
+    <h1>GPAポケモンAPI</h1>
+    <button id="send-button">取得</button>
+    </body>
+
+    <script>
+        var sendButton = document.getElementById("send-button");
+        sendButton.addEventListener('click', () => {
+            fetch('https://poke-api-ja.vercel.app/api/25')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            });
+        });
+    </script>
+</html>
