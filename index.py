@@ -9,10 +9,10 @@ app.config["JSON_AS_ASCII"] = False
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 
 
-@app.route("/")
-def index():
-    html = render_template('index.html')
-    return html
+# @app.route("/")
+# def index():
+#     html = render_template('index.html')
+#     return html
 
 @app.route("/api/")
 def hello_api():
