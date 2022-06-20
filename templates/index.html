@@ -15,6 +15,9 @@
         <p>レスポンス</p>
         <textarea id="view-area" rows="10" cols="80">
         </textarea>
+        <div id="result-view">
+        </div>
+        
     </div>
     </body>
 
@@ -28,7 +31,14 @@
                 var viewArea = document.getElementById("view-area");
                 json_data = JSON.stringify(data, null, "\t");
                 viewArea.value = json_data;
-                console.log(json_data);
+                //console.log(json_data);
+
+                //生成
+                var h2_title = document.createElement("h2");
+                h2_title.innerHTML = "あなたのGPAポケモンは" + data["name_ja"] + "です"
+                var  resultView = document.getElementById("result-view");
+                resultView.innerHTML = "";
+                resultView.appendChild(h2_title);
             });
         });
     </script>
