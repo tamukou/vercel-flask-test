@@ -27,12 +27,12 @@ def id(id):
             return jsonify({
                 'error': 'Out of bounds exception', 
                 'message': 'Id is out of bounds. Enter a value from 1 to 400',
-                'example-url': 'https://poke-api-ja.vercel.app/api/25'})
+                'example-url': 'https://poke-gpa-api.vercel.app/api/25'})
     except Exception as e:
         return jsonify({
             'error': 'Number format exception', 
             'message': 'Enter a value from 1 to 400',
-            'example-url': 'https://poke-api-ja.vercel.app/api/25'
+            'example-url': 'https://poke-gpa-api.vercel.app/api/25'
             })
         
     #pokeapiから取得

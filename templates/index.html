@@ -4,16 +4,25 @@
         <title>GPAポケモンAPI</title>
     </head>
     <body>
-    <h1>GPAポケモンAPI</h1>
-    <button id="send-button">取得</button>
+    <h1>GPAポケモンAPI サンプル</h1>
+    <p>あなたのGPAを100倍した値を入力してください</p>
+    <span>https://poke-gpa-api.vercel.app/api/</span><input placeholder=25 type="text" id="id" style="width:50px;">
+    <br>
+    <p>例：GPAが0.25の場合、https://poke-gpa-api.vercel.app/api/25</p>
+    <button id="send-button">GETリクエストを送信</button><br>
+    <div id="view-area">
+    </div>
     </body>
 
     <script>
         var sendButton = document.getElementById("send-button");
         sendButton.addEventListener('click', () => {
-            fetch('https://poke-api-ja.vercel.app/api/25')
+            id = document.getElementById("id").value;
+            fetch('https://poke-gpa-api.vercel.app/api/' + id)
             .then(response => response.json())
             .then(data => {
+                var viewArea = document.getElementById("view-area");
+                viewArea.innerHTML = data;
                 console.log(data);
             });
         });
