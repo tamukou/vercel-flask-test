@@ -9,10 +9,10 @@ app.config["JSON_AS_ASCII"] = False
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 
 
-# @app.route("/")
-# def index():
-#     html = render_template('index.html')
-#     return html
+@app.route("/")
+def index():
+    html = render_template('index.html')
+    return html
 
 @app.route("/api/")
 def hello_api():
@@ -60,24 +60,4 @@ def id(id):
         name_en = name_en,
         image = image
     )  
-
-
-def get_name_image(id_str):
-    url = "https://pokeapi.co/api/v2/pokemon/" + id_str  + "/"
-    r = requests.get(url, timeout=5)
-    r = r.json()
-    name  = r['name']
-    id    = r['id']
-    image = r['sprites']['front_default']
-    types = r['types'][0]['type']['name']
-
-    print(id)
-    print(name)
-    print(image)
-    print(types)
-
-    return name, image
-
-if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=8888, debug=True)
 
