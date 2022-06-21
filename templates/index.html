@@ -25,7 +25,8 @@
         var sendButton = document.getElementById("send-button");
         sendButton.addEventListener('click', () => {
             id = document.getElementById("id").value;
-            fetch('https://poke-gpa-api.vercel.app/api/' + id)
+            var url = "https://poke-gpa-api.vercel.app/api/" + id;
+            fetch(url)
             .then(response => response.json())
             .then(data => {
                 var viewArea = document.getElementById("view-area");
@@ -38,11 +39,17 @@
                 resultView.innerHTML = "";
                 if(data["name_ja"]){
                     var h2_title = document.createElement("h2");
-                    h2_title.innerHTML = "あなたのGPAポケモンは" + data["name_ja"] + "です"
+                    var text = "あなたのGPAポケモンは" + data["name_ja"] + "です";
+                    h2_title.innerHTML = text;
                     var image = document.createElement("img");
                     image.src = data["image_url"];
                     resultView.appendChild(h2_title);
                     resultView.appendChild(image);
+                    var tweetButton = document.createElement("a");
+                    var this_url = "https://poke-gpa-api.vercel.app/";
+                    tweetButton.href = "http://twitter.com/share?text=" + text + "¥n" + this_url + "&url=https://zukan.pokemon.co.jp/detail/" + id;
+                    tweetButton.onclick = "window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;";
+                    resultView.appendChild(tweetButton);
                 }
             });
         });
