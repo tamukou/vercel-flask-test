@@ -45,11 +45,11 @@
                     image.src = data["image_url"];
                     resultView.appendChild(h2_title);
                     resultView.appendChild(image);
-                    var tweetButton = document.createElement("a");
-                    var this_url = "https://poke-gpa-api.vercel.app/";
-                    tweetButton.href = "http://twitter.com/share?text=" + text + "¥n" + this_url + "&url=https://zukan.pokemon.co.jp/detail/" + id;
-                    tweetButton.onclick = "window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;";
-                    resultView.appendChild(tweetButton);
+                    // var tweetButton = document.createElement("a");
+                    // var this_url = "https://poke-gpa-api.vercel.app/";
+                    // tweetButton.href = "http://twitter.com/share?text=" + text + "¥n" + this_url + "&url=https://zukan.pokemon.co.jp/detail/" + id;
+                    // tweetButton.onclick = "window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;";
+                    // resultView.appendChild(tweetButton);
                 }
             });
         });
